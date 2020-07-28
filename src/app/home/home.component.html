@@ -1,0 +1,58 @@
+<mat-toolbar color="primary">
+  <span>Daftar Alat Berat PT Indo Lampung Perkasa</span>
+  <span class="spacer"></span>
+  <button mat-raised-button color="warn" class="logout" routerLink="/login">
+    Logout
+  </button>
+</mat-toolbar>
+<div style="padding: px;">
+  <div class="container">
+    <button
+      class="btn-tambah"
+      mat-raised-button
+      color="primary"
+      (click)="buat()"
+    >
+      Tambah Alat Berat
+    </button>
+    <mat-card style="width: 100%;">
+      <mat-card-header>
+        <mat-card-title>Daftar Alat Berat</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-list>
+          <mat-list-item *ngFor="let item of databerat" class="posisi1">
+            <span matListAvatar class="posisi">
+              <img style="height: 60px;" src="/assets/trm.png" alt="" />
+            </span>
+            <h3 matLine>
+              <b>{{ item.jenistraktor }}</b>
+            </h3>
+            <p matLine>
+              <span>Aktifitas : {{ item.aktifitas }} </span>
+            </p>
+            <p matLine>
+              <span>Tanggal : {{ item.tanggal }}</span>
+            </p>
+            <button
+              class="btn-edit"
+              mat-stroked-button
+              color="primary"
+              (click)="edit(item)"
+            >
+              Edit
+            </button>
+            <button
+              class="btn-delete"
+              mat-stroked-button
+              color="warn"
+              (click)="hapus(item.id)"
+            >
+              Hapus
+            </button>
+          </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
